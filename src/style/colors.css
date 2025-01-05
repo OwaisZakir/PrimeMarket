@@ -1,0 +1,20 @@
+:root {
+  /* Primary Colors */
+  --primary-color: #ff6f61; /* Main brand color */
+  --secondary-color: #ffab91; /* Lighter secondary color */
+
+  /* Neutral Colors */
+  --neutral-dark: #333; /* Dark neutral for text and backgrounds */
+  --neutral-light: #f5f5f5; /* Light neutral for backgrounds */
+  --accent-color: #3a3d40; /* For accents, dark text or icons */
+  --white: #ffffff; /* Basic white */
+
+  /* Shadows and Highlights */
+  --button-shadow: rgba(0, 0, 0, 0.2); /* Soft shadow for buttons */
+  --highlight-color: #ffe082; /* Highlight color for badges, sale banners */
+
+  /* Alert/Status Colors */
+  --success-color: #28a745; /* Success (Green) */
+  --error-color: #dc3545; /* Error (Red) */
+  --warning-color: #ffc107; /* Warning (Yellow) */
+}
