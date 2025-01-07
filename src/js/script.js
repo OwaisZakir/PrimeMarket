@@ -23,3 +23,8 @@ function updateCountdown() {
 }
 
 setInterval(updateCountdown, 1000);
+
+// ===================== Functionality =================
+fetch('https://fakestoreapi.com/products/category/electronics')
+            .then(res=>res.json())
+            .then(json=>console.log(json))

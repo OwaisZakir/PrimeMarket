@@ -1,109 +1,109 @@
-// ============== Navigation Bar ============
-let navTimeLine = gsap.timeline();
-// Smooth navbar reveal with bounce effect
-navTimeLine.from("#navigation", {
-  duration: 1.2,
-  y: -100,
-  opacity: 0,
-  ease: "bounce.out",
-});
+// // ============== Navigation Bar ============
+// let navTimeLine = gsap.timeline();
+// // Smooth navbar reveal with bounce effect
+// navTimeLine.from("#navigation", {
+//   duration: 1.2,
+//   y: -100,
+//   opacity: 0,
+//   ease: "bounce.out",
+// });
 
-// Fade-in with elastic ease for navbar brand
-navTimeLine.from(".navbar-brand", {
-  duration: 1.5,
-  opacity: 0,
-  x: -40,
-  ease: "elastic.out(1.2, 0.5)",
-});
+// // Fade-in with elastic ease for navbar brand
+// navTimeLine.from(".navbar-brand", {
+//   duration: 1.5,
+//   opacity: 0,
+//   x: -40,
+//   ease: "elastic.out(1.2, 0.5)",
+// });
 
-// Sequential slide-in for nav links with better timing
-gsap.from(".nav-link", {
-  duration: 1,
-  opacity: 0,
-  y: 20,
-  stagger: 0.15,
-  ease: "power2.out",
-});
+// // Sequential slide-in for nav links with better timing
+// gsap.from(".nav-link", {
+//   duration: 1,
+//   opacity: 0,
+//   y: 20,
+//   stagger: 0.15,
+//   ease: "power2.out",
+// });
 
-// Subtle grow effect for search bar
-gsap.from(".search-bar", {
-  duration: 0.9,
-  opacity: 1,
-  scale: 0.8,
-  ease: "circ.out",
-});
+// // Subtle grow effect for search bar
+// gsap.from(".search-bar", {
+//   duration: 0.9,
+//   opacity: 1,
+//   scale: 0.8,
+//   ease: "circ.out",
+// });
 
-// Bounce effect for cart icon with smoother scaling
-gsap.from(".cart-icon", {
-  duration: 1,
-  opacity: 0,
-  scale: 0.6,
-  ease: "elastic.out(1.5, 0.3)",
-  delay: 0.3,
-});
+// // Bounce effect for cart icon with smoother scaling
+// gsap.from(".cart-icon", {
+//   duration: 1,
+//   opacity: 0,
+//   scale: 0.6,
+//   ease: "elastic.out(1.5, 0.3)",
+//   delay: 0.3,
+// });
 
-// Improved hover animations
-document.querySelectorAll(".nav-link").forEach((link) => {
-  link.addEventListener("mouseenter", () => {
-    gsap.to(link, {
-      scale: 1.05,
-      duration: 0.2,
-      ease: "power1.out",
-    });
-  });
-  link.addEventListener("mouseleave", () => {
-    gsap.to(link, {
-      scale: 1,
-      duration: 0.2,
-      ease: "power1.in",
-    });
-  });
-});
+// // Improved hover animations
+// document.querySelectorAll(".nav-link").forEach((link) => {
+//   link.addEventListener("mouseenter", () => {
+//     gsap.to(link, {
+//       scale: 1.05,
+//       duration: 0.2,
+//       ease: "power1.out",
+//     });
+//   });
+//   link.addEventListener("mouseleave", () => {
+//     gsap.to(link, {
+//       scale: 1,
+//       duration: 0.2,
+//       ease: "power1.in",
+//     });
+//   });
+// });
 
-const cartIcon = document.querySelector(".cart-icon");
-cartIcon.addEventListener("mouseenter", () => {
-  gsap.to(cartIcon, {
-    scale: 1.15,
-    rotation: 5,
-    duration: 0.3,
-    ease: "back.out(2)",
-  });
-});
-cartIcon.addEventListener("mouseleave", () => {
-  gsap.to(cartIcon, {
-    scale: 1,
-    rotation: 0,
-    duration: 0.2,
-    ease: "bounce.out",
-  });
-});
+// const cartIcon = document.querySelector(".cart-icon");
+// cartIcon.addEventListener("mouseenter", () => {
+//   gsap.to(cartIcon, {
+//     scale: 1.15,
+//     rotation: 5,
+//     duration: 0.3,
+//     ease: "back.out(2)",
+//   });
+// });
+// cartIcon.addEventListener("mouseleave", () => {
+//   gsap.to(cartIcon, {
+//     scale: 1,
+//     rotation: 0,
+//     duration: 0.2,
+//     ease: "bounce.out",
+//   });
+// });
 
-// ================= Navigation Bar Done =================
+// // ================= Navigation Bar Done =================
 
-// GSAP Animation for the limited-time items
-gsap.from(".limited-time-item", {
-  opacity: 0,
-  scale: 0.9,
-  duration: 1,
-  ease: "power3.out",
-  stagger: 0.2, // Delay between each item animation
-  scrollTrigger: {
-    trigger: ".swiper-container",
-    start: "top bottom",
-    end: "bottom top",
-    scrub: true,
-  },
-});
+// // GSAP Animation for the limited-time items
+// gsap.from(".limited-time-item", {
+//   opacity: 0,
+//   scale: 0.9,
+//   duration: 1,
+//   ease: "power3.out",
+//   stagger: 0.2, // Delay between each item animation
+//   scrollTrigger: {
+//     trigger: ".swiper-container",
+//     start: "top bottom",
+//     end: "bottom top",
+//     scrub: true,
+//   },
+// });
 
-// Smooth Scroll
-document.querySelectorAll(".footer .footer-links a").forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-});
+// // Smooth Scroll
+// document.querySelectorAll(".footer .footer-links a").forEach((anchor) => {
+//   anchor.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     document.querySelector(this.getAttribute("href")).scrollIntoView({
+//       behavior: "smooth",
+//     });
+//   });
+// });
 
 
 
