@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - PrimeMarket</title>
+    <link
+      href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Header */
+      .navbar {
+        background-color: #ff6f61;
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .navbar-nav .nav-link {
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .navbar-nav .nav-link:hover {
+        background-color: #ffab91;
+        border-radius: 5px;
+      }
+
+      /* Contact Us Section */
+      .contact-section {
+        padding: 60px 20px;
+      }
+
+      .contact-header {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #333;
+        font-weight: 700;
+        margin-bottom: 40px;
+      }
+
+      .contact-form-container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form-container h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .form-control {
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+      }
+
+      .form-control:focus {
+        border-color: #ff6f61;
+      }
+
+      .contact-btn {
+        background-color: #ff6f61;
+        border: none;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        width: 100%;
+      }
+
+      .contact-btn:hover {
+        background-color: #ffab91;
+      }
+
+      .map-container {
+        margin-top: 40px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .map-iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #2c3e50;
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      .footer .social-icons i {
+        font-size: 1.5rem;
+        margin: 0 10px;
+        color: white;
+      }
+
+      .footer .social-icons i:hover {
+        color: #ff6f61;
+      }
+
+      /* Contact Information */
+      .contact-info {
+        margin-top: 40px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-info p {
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .contact-info .info-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      /* Snackbar Styling */
+      .snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+        transition: 0.3s;
+      }
+
+      .snackbar.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 3s;
+      }
+
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeout {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      /* Success and Error Snackbar Colors */
+      .snackbar.success {
+        background-color: #4caf50;
+      }
+
+      .snackbar.error {
+        background-color: #f44336;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 767px) {
+        .contact-header {
+          font-size: 2rem;
+        }
+
+        .contact-form-container {
+          padding: 20px;
+        }
+
+        .contact-form-container h3 {
+          font-size: 1.5rem;
+        }
+
+        .form-control {
+          font-size: 1rem;
+        }
+
+        .contact-btn {
+          font-size: 1rem;
+          padding: 10px;
+        }
+
+        .map-iframe {
+          height: 250px;
+        }
+
+        .contact-info {
+          padding: 15px;
+        }
+
+        .contact-info .info-title {
+          font-size: 1.2rem;
+        }
+
+        .footer {
+          padding: 20px 0;
+        }
+
+        .footer .social-icons i {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .contact-header {
+          font-size: 2.2rem;
+        }
+
+        .contact-form-container {
+          padding: 30px;
+        }
+
+        .contact-form-container h3 {
+          font-size: 1.8rem;
+        }
+
+        .form-control {
+          font-size: 1.1rem;
+        }
+
+        .contact-btn {
+          font-size: 1.1rem;
+          padding: 12px;
+        }
+
+        .map-iframe {
+          height: 300px;
+        }
+
+        .contact-info {
+          padding: 18px;
+        }
+
+        .contact-info .info-title {
+          font-size: 1.3rem;
+        }
+
+        .footer .social-icons i {
+          font-size: 1.4rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .contact-header {
+          font-size: 2.5rem;
+        }
+
+        .contact-form-container {
+          padding: 40px;
+        }
+
+        .contact-form-container h3 {
+          font-size: 2rem;
+        }
+
+        .form-control {
+          font-size: 1.2rem;
+        }
+
+        .contact-btn {
+          font-size: 1.2rem;
+          padding: 14px;
+        }
+
+        .map-iframe {
+          height: 400px;
+        }
+
+        .contact-info {
+          padding: 20px;
+        }
+
+        .contact-info .info-title {
+          font-size: 1.5rem;
+        }
+
+        .footer .social-icons i {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PrimeMarket</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <button onclick="window.location.href='/index.html'" class="nav-link btn" >Home</button>
+            </li>
+            <li class="nav-item">
+              <button onclick="window.location.href='./shope.html'" class="nav-link btn">Shop</button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contact Us Section -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-header" id="contactHeader">
+          <h2>Contact Us</h2>
+          <p>
+            We'd love to hear from you! Reach out to us and we'll get back to
+            you as soon as possible.
+          </p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-container" id="contactFormContainer">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                id="message"
+                rows="4"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="contact-btn">Submit</button>
+          </form>
+        </div>
+
+        <!-- Location Map -->
+        <div class="map-container" id="mapContainer">
+          <iframe
+            class="map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.8358285452635!2d-122.08424948469294!3d37.42199987982506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb32b9dfb877%3A0x370fbd9b09e8a4d9!2sGoogleplex!5e0!3m2!1sen!2sus!4v1631182638180!5m2!1sen!2sus"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info" id="contactInfo">
+          <h3 class="info-title">Our Contact Information</h3>
+          <p><i class="fas fa-phone"></i> Phone: +1 234 567 890</p>
+          <p><i class="fas fa-envelope"></i> Email: support@primemarket.com</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Address: 123 Market Street,
+            New York, NY 10001
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 PrimeMarket. All rights reserved.</p>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="https://twitter.com" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://linkedin.com" target="_blank"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Snackbar for Success/Error Messages -->
+    <div id="snackbar" class="snackbar"></div>
+
+    <!-- GSAP and JavaScript -->
+    <script src="https://unpkg.com/gsap@3.9.1/dist/gsap.min.js"></script>
+    <script>
+      // GSAP Animations on page load
+      window.onload = () => {
+        gsap.from("#contactHeader", { opacity: 0, y: -50, duration: 1 });
+        gsap.from("#contactFormContainer", {
+          opacity: 0,
+          x: -200,
+          duration: 1,
+        });
+        gsap.from("#mapContainer", { opacity: 0, y: 50, duration: 1 });
+        gsap.from("#contactInfo", { opacity: 0, x: 200, duration: 1 });
+      };
+
+      // Show Snackbar function
+      function showSnackbar(type, message) {
+        const snackbar = document.getElementById("snackbar");
+        snackbar.textContent = message;
+        snackbar.classList.add(type, "show");
+        setTimeout(function () {
+          snackbar.classList.remove("show");
+        }, 4000);
+      }
+
+      // Contact Form Submit
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          if (name && email && message) {
+            showSnackbar("success", "Your message has been sent successfully!");
+            document.getElementById("contactForm").reset(); // Clear the form
+          } else {
+            showSnackbar("error", "Please fill all the fields.");
+          }
+        });
+    </script>
+  </body>
+</html>

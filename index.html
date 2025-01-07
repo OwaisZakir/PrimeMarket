@@ -42,16 +42,28 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-lg-center">
             <li class="nav-item">
-              <a href="#home" class="nav-link fw-bold">Home</a>
+              <button href="#home" class="nav-link fw-bold">Home</button>
             </li>
             <li class="nav-item">
-              <a href="#shop" class="nav-link fw-bold">Shop</a>
+              <button
+                onclick="window.location.href='./src/pages/shope.html'"
+                class="nav-link fw-bold"
+              >
+                Shop
+              </button>
             </li>
             <li class="nav-item">
-              <a href="#about" class="nav-link fw-bold">About</a>
+              <button href="./src/pages/about.html" class="nav-link fw-bold">
+                About
+              </button>
             </li>
             <li class="nav-item">
-              <a href="#contact" class="nav-link fw-bold">Contact Us</a>
+              <button
+                onclick="window.location.href='./src/pages/contact.html'"
+                class="nav-link fw-bold"
+              >
+                Contact Us
+              </button>
             </li>
             <li class="nav-item">
               <input type="text" class="search-bar" placeholder="Search..." />
@@ -75,7 +87,8 @@
           <div
             class="hero-slide swiper-slide"
             style="
-              background: url(https://via.placeholder.com/1920x1080) no-repeat;
+              background: url(https://t4.ftcdn.net/jpg/06/22/74/79/360_F_622747997_4s5nw9y2WG3LJyQ5iRF4KRGLbySGRd82.jpg)
+                no-repeat;
               background-size: cover;
             "
           >
@@ -125,8 +138,8 @@
       <div class="container">
         <h2 class="section-title fw-bold">Trending Products</h2>
         <div class="swiper custom-product-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
+          <div id="trending-products-holder" class="swiper-wrapper">
+            <!-- <div class="swiper-slide">
               <div class="custom-trending-product-card">
                 <img
                   src="https://via.placeholder.com/400x400"
@@ -185,7 +198,7 @@
                 <p>$79.99</p>
                 <button class="btn btn-primary">Add to Cart</button>
               </div>
-            </div>
+            </div> -->
             <!-- Add more trending products here -->
           </div>
         </div>
@@ -407,7 +420,7 @@
       <div class="container">
         <h2 class="section-title text-center">What Our Customers Say</h2>
         <div class="swiper testimonial-swiper">
-          <div class="swiper-wrapper">
+          <div id="blogs-container" class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="testimonial-card">
                 <img

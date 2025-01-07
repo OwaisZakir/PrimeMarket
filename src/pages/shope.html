@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --primary-color: #ff6f61;
+        --secondary-color: #ffab91;
+        --neutral-dark: #333;
+        --neutral-light: #f5f5f5;
+        --accent-color: #3a3d40;
+        --white: #ffffff;
+        --button-shadow: rgba(0, 0, 0, 0.2);
+        --highlight-color: #ffe082;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--neutral-light);
+        color: var(--neutral-dark);
+        margin: 0;
+      }
+
+      .breadcrumb {
+        background: none;
+        padding: 10px 0;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+      }
+
+      .filter-sidebar {
+        padding: 20px;
+        background-color: var(--white);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .filter-sidebar h5 {
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .filter-sidebar label {
+        margin-left: 10px;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .product-card {
+        background-color: var(--white);
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .product-card h5 {
+        margin: 10px 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--neutral-dark);
+      }
+
+      .product-card .price {
+        font-size: 1rem;
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      .add-to-cart-btn {
+        background-color: var(--primary-color);
+        color: var(--white);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        margin-top: 12px;
+        box-shadow: 0 3px 6px var(--button-shadow);
+        transition: background-color 0.3s ease;
+      }
+
+      .add-to-cart-btn:hover {
+        background-color: var(--accent-color);
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .pagination .page-link {
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        border-radius: 50%;
+        padding: 8px 14px;
+      }
+
+      .pagination .page-link:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
+
+      @media (max-width: 767px) {
+        .filter-sidebar {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-5">
+      <!-- Breadcrumb Navigation -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Shop</li>
+        </ol>
+      </nav>
+
+      <div class="row">
+        <!-- Sidebar Filters -->
+        <aside class="col-lg-3">
+          <div class="filter-sidebar">
+            <h5>Filter by Category</h5>
+            <div>
+              <input type="checkbox" id="clothing" />
+              <label for="clothing">Clothing</label>
+            </div>
+            <div>
+              <input type="checkbox" id="footwear" />
+              <label for="footwear">Footwear</label>
+            </div>
+            <div>
+              <input type="checkbox" id="electronics" />
+              <label for="electronics">Electronics</label>
+            </div>
+
+            <h5 class="mt-4">Price Range</h5>
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="500"
+              step="10"
+            />
+
+            <h5 class="mt-4">Brand</h5>
+            <div>
+              <input type="checkbox" id="brand1" />
+              <label for="brand1">Brand 1</label>
+            </div>
+            <div>
+              <input type="checkbox" id="brand2" />
+              <label for="brand2">Brand 2</label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <main class="col-lg-9">
+          <div class="product-grid">
+            <div class="product-card">
+              <img src="https://via.placeholder.com/300x300" alt="Product 1" />
+              <h5>Product Name 1</h5>
+              <p class="price">$49.99</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+              <img src="https://via.placeholder.com/300x300" alt="Product 2" />
+              <h5>Product Name 2</h5>
+              <p class="price">$79.99</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+              <img src="https://via.placeholder.com/300x300" alt="Product 3" />
+              <h5>Product Name 3</h5>
+              <p class="price">$99.99</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+              <img src="https://via.placeholder.com/300x300" alt="Product 4" />
+              <h5>Product Name 4</h5>
+              <p class="price">$59.99</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <nav aria-label="Page navigation">
+            <ul class="pagination mt-4">
+              <li class="page-item">
+                <a class="page-link" href="#">&#10094;</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">&#10095;</a>
+              </li>
+            </ul>
+          </nav>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
